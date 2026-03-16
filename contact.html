@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — QuoteFlow AI</title>
+    <meta
+      name="description"
+      content="Get in touch with the QuoteFlow AI team. We typically respond within 2 business days."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <style>
+      :root {
+        --bg: #fafaf8;
+        --ink: #0f0f0d;
+        --ink2: #4a4a42;
+        --accent: #1a6b45;
+        --accent-light: #e8f5ef;
+        --accent-hover: #155438;
+        --border: #e4e4dc;
+        --surface: #ffffff;
+        --warn: #c0392b;
+        --warn-bg: #fdf2f2;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Epilogue", sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      nav {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 900px;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--border);
+      }
+      .logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 20px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .logo em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .nav-back {
+        font-size: 13px;
+        color: var(--ink2);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: var(--accent);
+      }
+
+      /* LAYOUT */
+      .page-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 72px;
+        align-items: start;
+      }
+
+      @media (max-width: 680px) {
+        .page-wrap {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+      }
+
+      /* LEFT SIDE */
+      .contact-info {
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .page-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+        display: block;
+      }
+
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.08;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .intro {
+        font-size: 15px;
+        color: var(--ink2);
+        line-height: 1.75;
+        margin-bottom: 40px;
+        max-width: 340px;
+      }
+
+      /* Contact channels */
+      .channels {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+
+      .channel {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 18px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--ink);
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .channel:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .channel-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .channel-body {
+        flex: 1;
+      }
+      .channel-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: var(--ink2);
+        margin-bottom: 2px;
+      }
+      .channel-value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 2px;
+      }
+      .channel-note {
+        font-size: 12px;
+        color: var(--ink2);
+      }
+
+      /* Response time */
+      .response-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent-light);
+        border: 1px solid rgba(26, 107, 69, 0.15);
+        border-radius: 100px;
+        padding: 8px 16px;
+        font-size: 13px;
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .response-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: pulse 2s ease infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(1.4);
+        }
+      }
+
+      /* RIGHT SIDE — FORM */
+      .contact-form-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 36px 36px 32px;
+        animation: fadeUp 0.5s 0.1s ease both;
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.03),
+          0 8px 32px rgba(0, 0, 0, 0.06);
+      }
+
+      @media (max-width: 480px) {
+        .contact-form-wrap {
+          padding: 24px 20px;
+        }
+      }
+
+      .form-title {
+        font-family: "Instrument Serif", serif;
+        font-size: 22px;
+        letter-spacing: -0.3px;
+        margin-bottom: 6px;
+      }
+      .form-subtitle {
+        font-size: 14px;
+        color: var(--ink2);
+        margin-bottom: 28px;
+      }
+
+      /* Form error banner */
+      .form-error-box {
+        display: none;
+        background: var(--warn-bg);
+        border: 1px solid rgba(192, 57, 43, 0.25);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 13.5px;
+        color: var(--warn);
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 6px;
+      }
+      .field label .req {
+        color: var(--accent);
+        margin-left: 2px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 13px 15px;
+        font-size: 15px;
+        font-family: "Epilogue", sans-serif;
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        color: var(--ink);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s,
+          background 0.2s;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.6;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9a9a8e;
+      }
+      select {
+        color: #9a9a8e;
+      }
+      select.filled {
+        color: var(--ink);
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(26, 107, 69, 0.1);
+        background: var(--surface);
+      }
+      input.error,
+      textarea.error {
+        border-color: var(--warn) !important;
+        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.08) !important;
+        background: var(--warn-bg);
+      }
+      .field-hint {
+        font-size: 12px;
+        margin-top: 5px;
+        padding: 0 2px;
+        line-height: 1.4;
+      }
+      .field-hint.error-hint {
+        color: var(--warn);
+      }
+      .field-hint.char-count {
+        color: var(--ink2);
+        text-align: right;
+      }
+
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      @media (max-width: 480px) {
+        .field-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-family: "Epilogue", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          opacity 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .btn:hover:not(:disabled) {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+      .btn:active:not(:disabled) {
+        transform: translateY(0);
+      }
+      .btn:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+
+      .spinner {
+        width: 15px;
+        height: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        flex-shrink: 0;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .form-note {
+        font-size: 12px;
+        color: #9a9a8e;
+        text-align: center;
+        margin-top: 12px;
+        line-height: 1.5;
+      }
+      .form-note a {
+        color: var(--ink2);
+        text-decoration: underline;
+      }
+
+      /* Success */
+      .success-state {
+        display: none;
+        text-align: center;
+        padding: 20px 0;
+      }
+      .success-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--accent-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin: 0 auto 16px;
+        color: var(--accent);
+      }
+      .success-state h3 {
+        font-family: "Instrument Serif", serif;
+        font-size: 22px;
+        letter-spacing: -0.3px;
+        margin-bottom: 8px;
+      }
+      .success-state p {
+        font-size: 14px;
+        color: var(--ink2);
+        line-height: 1.6;
+      }
+
+      /* FAQ */
+      .faq {
+        margin-top: 48px;
+      }
+      .faq h2 {
+        font-family: "Instrument Serif", serif;
+        font-size: 18px;
+        margin-bottom: 16px;
+        letter-spacing: -0.3px;
+      }
+      .faq-item {
+        border-top: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      .faq-item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-q {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .faq-q .arrow {
+        font-size: 12px;
+        color: var(--ink2);
+        transition: transform 0.25s;
+        flex-shrink: 0;
+      }
+      .faq-item.open .faq-q .arrow {
+        transform: rotate(180deg);
+      }
+      .faq-a {
+        font-size: 14px;
+        color: var(--ink2);
+        line-height: 1.7;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          margin-top 0.2s;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+        margin-top: 4px;
+      }
+
+      /* FOOTER */
+      footer {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 28px 24px 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer p {
+        font-size: 12px;
+        color: #9a9a8e;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-links a {
+        font-size: 12px;
+        color: var(--ink2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html"><em>Quote</em>Flow AI</a>
+      <a class="nav-back" href="index.html">← Back to home</a>
+    </nav>
+
+    <div class="page-wrap">
+      <!-- LEFT: INFO -->
+      <div class="contact-info">
+        <span class="page-label">Get in Touch</span>
+        <h1>We'd love to <em>hear from you</em></h1>
+        <p class="intro">
+          Whether you have a question about the product, need help with your
+          account, or just want to say hello — we're here.
+        </p>
+
+        <div class="channels">
+          <a class="channel">
+            <div class="channel-icon" style="background: #e8f5ef">✉️</div>
+            <div class="channel-body">
+              <div class="channel-label">Email</div>
+              <div class="channel-value">valentinovbill0@gmail.com</div>
+              <div class="channel-note">General enquiries &amp; waitlist</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="response-badge">
+          <span class="response-dot"></span>
+          Typically replies within 2 business days
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq">
+          <h2>Quick answers</h2>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              When will QuoteFlow AI launch?
+              <span class="arrow">▼</span>
+            </div>
+            <div class="faq-a">
+              We're targeting a launch in Q3 2026. Waitlist members will be the
+              first to know and will receive early access before the public
+              launch.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              How do I remove myself from the waitlist?
+              <span class="arrow">▼</span>
+            </div>
+            <div class="faq-a">
+              Simply email us at valentinovbill0@gmail.com with the subject
+              "Remove from waitlist" and we'll delete your data within 48 hours.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              I'm interested in a partnership or integration — who should I
+              contact?
+              <span class="arrow">▼</span>
+            </div>
+            <div class="faq-a">
+              We'd love to hear from you. Please use the contact form on this
+              page and select "Partnership / Integration" as the topic.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Is there a demo available?
+              <span class="arrow">▼</span>
+            </div>
+            <div class="faq-a">
+              Not yet publicly — we're in pre-launch. If you're a business with
+              high quote volume and want a private demo, reach out and we'll see
+              what we can arrange.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT FORM -->
+      <div class="contact-form-wrap">
+        <div id="form-container">
+          <h2 class="form-title">Send us a message</h2>
+          <p class="form-subtitle">
+            Fill in the form and we'll get back to you within 2 business days.
+          </p>
+
+          <div id="form-error" class="form-error-box"></div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="c-name">Name <span class="req">*</span></label>
+              <input
+                type="text"
+                id="c-name"
+                placeholder="Your name"
+                autocomplete="name"
+              />
+            </div>
+            <div class="field">
+              <label for="c-email">Email <span class="req">*</span></label>
+              <input
+                type="email"
+                id="c-email"
+                placeholder="you@company.com"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="c-topic">Topic <span class="req">*</span></label>
+            <select id="c-topic" onchange="this.classList.add('filled')">
+              <option value="" disabled selected>What's this about?</option>
+              <option value="general">General question</option>
+              <option value="waitlist">Waitlist &amp; early access</option>
+              <option value="product">Product &amp; features</option>
+              <option value="support">Technical support</option>
+              <option value="privacy">Privacy &amp; data request</option>
+              <option value="partnership">Partnership / Integration</option>
+              <option value="press">Press &amp; media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="c-message">Message <span class="req">*</span></label>
+            <textarea
+              id="c-message"
+              placeholder="Tell us what's on your mind…"
+              maxlength="2000"
+              oninput="updateCharCount(this)"
+            ></textarea>
+            <p class="field-hint char-count" id="char-count">0 / 2000</p>
+          </div>
+
+          <button class="btn" id="btn-send" onclick="sendMessage()">
+            Send Message →
+          </button>
+
+          <p class="form-note">
+            By submitting this form you agree to our
+            <a href="privacy-policy.html">Privacy Policy</a>.<br />
+            We will never share your information with third parties.
+          </p>
+        </div>
+
+        <div class="success-state" id="success-state">
+          <div class="success-icon">✓</div>
+          <h3>Message sent!</h3>
+          <p>
+            Thanks for reaching out. We've received your message and will get
+            back to you at <strong id="reply-email"></strong> within 2 business
+            days.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 QuoteFlow AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      // ── Supabase config ──────────────────────────────────────────────
+      const SUPABASE_URL = "https://mjnauehridsaifwrlgvd.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_pMNjaaABKfyoD5Botmt80w_y_D4j9Zf";
+
+      async function insertMessage(payload) {
+        try {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              Prefer: "return=minimal",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) return;
+
+          const errBody = await res.json().catch(() => ({}));
+
+          if (res.status === 400) {
+            throw {
+              type: "bad_request",
+              detail: errBody.message || "Data tidak valid",
+            };
+          }
+          if (res.status === 401 || res.status === 403) {
+            throw { type: "auth", detail: "Masalah konfigurasi API/RLS" };
+          }
+          if (res.status >= 500) {
+            throw { type: "server" };
+          }
+
+          throw { type: "unknown", status: res.status };
+        } catch (err) {
+          if (err.type) throw err;
+
+          throw { type: "network", detail: err.message };
+        }
+      }
+
+      // ── State ────────────────────────────────────────────────────────
+      let isSubmitting = false;
+
+      // ── Char counter ─────────────────────────────────────────────────
+      function updateCharCount(el) {
+        document.getElementById("char-count").textContent =
+          `${el.value.length} / 2000`;
+      }
+
+      // ── Validation helpers ───────────────────────────────────────────
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      }
+
+      function setFieldError(el, msg) {
+        el.classList.add("error");
+        const existing = el.parentElement.querySelector(
+          ".field-hint.error-hint",
+        );
+        if (existing) existing.remove();
+        const hint = document.createElement("p");
+        hint.className = "field-hint error-hint";
+        hint.textContent = msg;
+        el.after(hint);
+        el.addEventListener(
+          "input",
+          () => {
+            el.classList.remove("error");
+            const h = el.parentElement.querySelector(".field-hint.error-hint");
+            if (h) h.remove();
+          },
+          { once: true },
+        );
+      }
+
+      function showBanner(msg) {
+        const box = document.getElementById("form-error");
+        box.textContent = msg;
+        box.style.display = "block";
+        box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function hideBanner() {
+        document.getElementById("form-error").style.display = "none";
+      }
+
+      function setLoading(on) {
+        const btn = document.getElementById("btn-send");
+        if (on) {
+          btn.disabled = true;
+          btn.innerHTML = '<span class="spinner"></span> Sending…';
+        } else {
+          btn.disabled = false;
+          btn.textContent = "Send Message →";
+        }
+      }
+
+      function getErrorMessage(err) {
+        if (!navigator.onLine)
+          return "You appear to be offline. Please check your connection and try again.";
+        switch (err.type) {
+          case "bad_request":
+            return (
+              err.detail ||
+              "Something looks off with your submission. Please check your inputs."
+            );
+          case "auth":
+            return "Configuration error on our end. Please email us directly at hello@quoteflow.ai.";
+          case "server":
+            return "Our server had a hiccup. Please try again in a moment.";
+          default:
+            return "Something went wrong. Please try again or email hello@quoteflow.ai directly.";
+        }
+      }
+
+      // ── Send message ──────────────────────────────────────────────────
+      async function sendMessage() {
+        if (isSubmitting) return;
+        hideBanner();
+
+        const nameEl = document.getElementById("c-name");
+        const emailEl = document.getElementById("c-email");
+        const topicEl = document.getElementById("c-topic");
+        const messageEl = document.getElementById("c-message");
+
+        const name = nameEl.value.trim();
+        const email = emailEl.value.trim();
+        const topic = topicEl.value;
+        const message = messageEl.value.trim();
+
+        // Validate all fields
+        let hasError = false;
+
+        if (!name) {
+          setFieldError(nameEl, "Please enter your name.");
+          hasError = true;
+        }
+        if (!email) {
+          setFieldError(emailEl, "Please enter your email address.");
+          hasError = true;
+        } else if (!isValidEmail(email)) {
+          setFieldError(emailEl, "Please enter a valid email address.");
+          hasError = true;
+        }
+        if (!topic) {
+          setFieldError(topicEl, "Please select a topic.");
+          hasError = true;
+        }
+        if (!message) {
+          setFieldError(messageEl, "Please write your message before sending.");
+          hasError = true;
+        } else if (message.length < 10) {
+          setFieldError(
+            messageEl,
+            "Message is too short — please give us a bit more detail.",
+          );
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        isSubmitting = true;
+        setLoading(true);
+
+        try {
+          await insertMessage({ name, email, topic, message });
+          document.getElementById("form-container").style.display = "none";
+          document.getElementById("reply-email").textContent = email;
+          const s = document.getElementById("success-state");
+          s.style.display = "block";
+          s.style.animation = "fadeUp 0.45s ease both";
+        } catch (err) {
+          setLoading(false);
+          isSubmitting = false;
+          showBanner(getErrorMessage(err));
+        }
+      }
+
+      // Enter key in fields (not textarea)
+      document.getElementById("c-name").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") document.getElementById("c-email").focus();
+      });
+
+      // ── FAQ accordion ─────────────────────────────────────────────────
+      function toggleFaq(el) {
+        const item = el.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item.open")
+          .forEach((i) => i.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      }
+    </script>
+  </body>
+</html>

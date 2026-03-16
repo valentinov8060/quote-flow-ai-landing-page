@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service — QuoteFlow AI</title>
+    <meta
+      name="description"
+      content="QuoteFlow AI Terms of Service. Read the terms that govern your use of our platform."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <style>
+      :root {
+        --bg: #fafaf8;
+        --ink: #0f0f0d;
+        --ink2: #4a4a42;
+        --accent: #1a6b45;
+        --accent-light: #e8f5ef;
+        --border: #e4e4dc;
+        --surface: #ffffff;
+        --warn-bg: #fdf8ec;
+        --warn-border: #d4a017;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Epilogue", sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      nav {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--border);
+      }
+      .logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 20px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .logo em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .nav-back {
+        font-size: 13px;
+        color: var(--ink2);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: var(--accent);
+      }
+
+      .page-wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 64px;
+        align-items: start;
+      }
+
+      @media (max-width: 680px) {
+        .page-wrap {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .toc {
+          display: none;
+        }
+      }
+
+      .toc {
+        position: sticky;
+        top: 32px;
+      }
+      .toc-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--ink2);
+        margin-bottom: 14px;
+      }
+      .toc a {
+        display: block;
+        font-size: 13px;
+        color: var(--ink2);
+        text-decoration: none;
+        padding: 5px 0 5px 12px;
+        border-left: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        line-height: 1.4;
+      }
+      .toc a:hover,
+      .toc a.active {
+        color: var(--accent);
+        border-left-color: var(--accent);
+      }
+
+      .content {
+        animation: fadeUp 0.5s ease both;
+      }
+
+      .content header {
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .page-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+        display: block;
+      }
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.1;
+        letter-spacing: -1px;
+        margin-bottom: 14px;
+      }
+      .meta {
+        font-size: 13px;
+        color: var(--ink2);
+      }
+
+      .doc-section {
+        margin-bottom: 44px;
+        scroll-margin-top: 32px;
+      }
+      .doc-section h2 {
+        font-family: "Instrument Serif", serif;
+        font-size: 22px;
+        letter-spacing: -0.3px;
+        margin-bottom: 14px;
+        color: var(--ink);
+      }
+      .doc-section p {
+        font-size: 15px;
+        color: var(--ink2);
+        margin-bottom: 14px;
+        line-height: 1.75;
+      }
+      .doc-section p:last-child {
+        margin-bottom: 0;
+      }
+      .doc-section ul,
+      .doc-section ol {
+        margin: 12px 0 14px 20px;
+      }
+      .doc-section li {
+        font-size: 15px;
+        color: var(--ink2);
+        margin-bottom: 6px;
+        line-height: 1.65;
+      }
+
+      .highlight-box {
+        background: var(--accent-light);
+        border-left: 3px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        padding: 16px 20px;
+        margin: 16px 0;
+      }
+      .highlight-box p {
+        color: var(--ink) !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        line-height: 1.6 !important;
+      }
+
+      .warning-box {
+        background: var(--warn-bg);
+        border-left: 3px solid var(--warn-border);
+        border-radius: 0 8px 8px 0;
+        padding: 16px 20px;
+        margin: 16px 0;
+      }
+      .warning-box p {
+        color: var(--ink) !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+        line-height: 1.6 !important;
+      }
+
+      .contact-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px 22px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: var(--ink2);
+        line-height: 1.7;
+      }
+      .contact-card a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact-card a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 28px 24px 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer p {
+        font-size: 12px;
+        color: #9a9a8e;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-links a {
+        font-size: 12px;
+        color: var(--ink2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html"><em>Quote</em>Flow AI</a>
+      <a class="nav-back" href="index.html">← Back to home</a>
+    </nav>
+
+    <div class="page-wrap">
+      <aside class="toc">
+        <div class="toc-label">On this page</div>
+        <a href="#acceptance">Acceptance of Terms</a>
+        <a href="#description">Service Description</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#account">Account &amp; Waitlist</a>
+        <a href="#payment">Payment &amp; Billing</a>
+        <a href="#disclaimers">Disclaimers</a>
+        <a href="#limitation">Limitation of Liability</a>
+        <a href="#indemnification">Indemnification</a>
+        <a href="#termination">Termination</a>
+        <a href="#governing-law">Governing Law</a>
+        <a href="#changes">Changes to Terms</a>
+        <a href="#contact">Contact</a>
+      </aside>
+
+      <main class="content">
+        <header>
+          <span class="page-label">Legal</span>
+          <h1>Terms of Service</h1>
+          <p class="meta">
+            Last updated: 16 March 2026 &nbsp;·&nbsp; Effective: 16 March 2026
+          </p>
+        </header>
+
+        <div class="doc-section" id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing <strong>quoteflowai</strong>, joining our waitlist, or
+            using any QuoteFlow AI product or service, you agree to be bound by
+            these Terms of Service ("Terms"). If you do not agree to these
+            Terms, please do not use our service.
+          </p>
+          <p>
+            These Terms constitute a legally binding agreement between you and
+            QuoteFlow AI. Please read them carefully.
+          </p>
+        </div>
+
+        <div class="doc-section" id="description">
+          <h2>2. Service Description</h2>
+          <p>
+            QuoteFlow AI provides an AI-powered quote generation platform for
+            custom businesses. The service allows businesses to automate the
+            creation, delivery, and management of client quotes ("the Service").
+          </p>
+          <p>
+            The Service is currently in pre-launch. Features described on our
+            website represent our intended product and may change before or
+            after launch without prior notice.
+          </p>
+        </div>
+
+        <div class="doc-section" id="eligibility">
+          <h2>3. Eligibility</h2>
+          <p>To use QuoteFlow AI you must:</p>
+          <ul>
+            <li>Be at least 18 years of age</li>
+            <li>Have the legal authority to enter into a binding agreement</li>
+            <li>
+              Not be prohibited from using the Service under applicable law
+            </li>
+            <li>Use the Service for lawful business purposes only</li>
+          </ul>
+          <p>
+            By joining the waitlist or using the Service, you represent that you
+            meet all of the above requirements.
+          </p>
+        </div>
+
+        <div class="doc-section" id="account">
+          <h2>4. Account &amp; Waitlist</h2>
+          <p>
+            When you join our waitlist, you provide your email address and
+            optional profile information. You are responsible for ensuring this
+            information is accurate.
+          </p>
+          <p>
+            Joining the waitlist does not guarantee access to the product. We
+            reserve the right to grant or deny access at our sole discretion.
+            Early access members may receive promotional benefits (such as free
+            subscription periods) as described on our website at the time of
+            signup; these offers are subject to change.
+          </p>
+          <div class="highlight-box">
+            <p>
+              Waitlist data is stored securely and used only to contact you
+              about QuoteFlow AI. You can remove yourself from the waitlist at
+              any time by emailing us.
+            </p>
+          </div>
+        </div>
+
+        <div class="doc-section" id="payment">
+          <h2>5. Payment &amp; Billing</h2>
+          <p>
+            Paid plans will be offered at launch. Pricing and billing terms will
+            be communicated before you are charged. By subscribing to a paid
+            plan, you agree to:
+          </p>
+          <ul>
+            <li>Pay all fees as described at the time of purchase</li>
+            <li>Provide accurate and complete billing information</li>
+            <li>
+              Authorise us to charge your payment method on a recurring basis
+              (for subscription plans)
+            </li>
+          </ul>
+          <p>
+            We reserve the right to change pricing with at least 30 days' notice
+            to existing customers. Refunds will be handled on a case-by-case
+            basis at our discretion.
+          </p>
+        </div>
+
+        <div class="doc-section" id="disclaimers">
+          <h2>6. Disclaimers</h2>
+          <div class="warning-box">
+            <p>
+              The Service is provided "as is" and "as available" without
+              warranties of any kind, express or implied. We do not warrant that
+              the Service will be uninterrupted, error-free, or produce accurate
+              results in all cases.
+            </p>
+          </div>
+          <p>
+            AI-generated quotes are tools to assist your business and should be
+            reviewed before sending to clients. QuoteFlow AI is not responsible
+            for pricing errors, missed deals, or business outcomes resulting
+            from your use of the Service.
+          </p>
+        </div>
+
+        <div class="doc-section" id="limitation">
+          <h2>7. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by applicable law, QuoteFlow AI and
+            its directors, employees, and agents shall not be liable for:
+          </p>
+          <ul>
+            <li>Indirect, incidental, special, or consequential damages</li>
+            <li>Loss of profits, revenue, data, or business opportunities</li>
+            <li>Damages arising from your reliance on AI-generated content</li>
+            <li>
+              Any damages exceeding the amount you paid us in the 12 months
+              preceding the claim
+            </li>
+          </ul>
+        </div>
+
+        <div class="doc-section" id="indemnification">
+          <h2>8. Indemnification</h2>
+          <p>
+            You agree to indemnify and hold harmless QuoteFlow AI, its officers,
+            directors, employees, and agents from any claims, damages, losses,
+            or expenses (including legal fees) arising from:
+          </p>
+          <ul>
+            <li>Your use or misuse of the Service</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any third-party rights</li>
+            <li>
+              Any quotes or communications you send to your clients using our
+              platform
+            </li>
+          </ul>
+        </div>
+
+        <div class="doc-section" id="termination">
+          <h2>9. Termination</h2>
+          <p>
+            You may stop using the Service and cancel your account at any time.
+            We may suspend or terminate your access at our discretion, with or
+            without cause, with reasonable notice where possible.
+          </p>
+          <p>
+            Upon termination, your right to use the Service ceases immediately.
+            Provisions that by their nature should survive termination (such as
+            intellectual property, disclaimers, and limitation of liability)
+            will continue to apply.
+          </p>
+        </div>
+
+        <div class="doc-section" id="governing-law">
+          <h2>10. Governing Law</h2>
+          <p>
+            These Terms are governed by and construed in accordance with the
+            laws of the Republic of Indonesia. Any disputes arising from these
+            Terms shall be subject to the exclusive jurisdiction of the courts
+            located in Jakarta, Indonesia.
+          </p>
+        </div>
+
+        <div class="doc-section" id="changes">
+          <h2>11. Changes to Terms</h2>
+          <p>
+            We may modify these Terms at any time. We will notify users of
+            material changes via email at least 14 days before they take effect.
+            Your continued use of the Service after changes constitutes
+            acceptance of the new Terms.
+          </p>
+          <p>
+            We recommend checking this page periodically. The "Last updated"
+            date at the top of the page reflects when changes were last made.
+          </p>
+        </div>
+
+        <div class="doc-section" id="contact">
+          <h2>12. Contact</h2>
+          <p>For any questions about these Terms, please contact us:</p>
+          <div class="contact-card">
+            <strong>QuoteFlow AI — Legal Team</strong><br />
+            Email:
+            <a href="mailto:valentinovbill0@gmail.com"
+              >valentinovbill0@gmail.com</a
+            ><br />
+            Response time: Within 2 business days
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <p>© 2026 QuoteFlow AI. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      const sections = document.querySelectorAll(".doc-section");
+      const tocLinks = document.querySelectorAll(".toc a");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tocLinks.forEach((l) => l.classList.remove("active"));
+              const link = document.querySelector(
+                `.toc a[href="#${entry.target.id}"]`,
+              );
+              if (link) link.classList.add("active");
+            }
+          });
+        },
+        { rootMargin: "-20% 0px -70% 0px" },
+      );
+      sections.forEach((s) => obs.observe(s));
+    </script>
+  </body>
+</html>

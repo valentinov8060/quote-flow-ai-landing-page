@@ -1,0 +1,1167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuoteFlow AI — Send Custom Business Quotes in 60 Seconds</title>
+    <meta
+      name="description"
+      content="AI-powered quote generator for custom businesses. Stop losing deals to slow quotes. Generate, send, and close in under 60 seconds."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <style>
+      :root {
+        --bg: #fafaf8;
+        --ink: #0f0f0d;
+        --ink2: #4a4a42;
+        --accent: #1a6b45;
+        --accent-light: #e8f5ef;
+        --accent-hover: #155438;
+        --border: #e4e4dc;
+        --surface: #ffffff;
+        --warn: #c0392b;
+        --warn-bg: #fdf2f2;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Epilogue", sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NAV ── */
+      nav {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Instrument Serif", serif;
+        font-size: 20px;
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: -0.3px;
+      }
+      .logo em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .nav-count {
+        font-size: 12px;
+        color: var(--ink2);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: blink 2s ease infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* ── HERO ── */
+      .hero {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 48px 24px 0;
+        text-align: center;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+        animation: fadeUp 0.5s ease both;
+      }
+      h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(38px, 7vw, 62px);
+        line-height: 1.08;
+        letter-spacing: -1.5px;
+        color: var(--ink);
+        margin-bottom: 20px;
+        animation: fadeUp 0.5s 0.08s ease both;
+      }
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .subheadline {
+        font-size: clamp(16px, 2.5vw, 18px);
+        color: var(--ink2);
+        font-weight: 400;
+        max-width: 500px;
+        margin: 0 auto 36px;
+        line-height: 1.65;
+        animation: fadeUp 0.5s 0.16s ease both;
+      }
+
+      /* ── PRODUCT VISUAL ── */
+      .product-visual {
+        margin: 0 auto 44px;
+        max-width: 520px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.04),
+          0 8px 32px rgba(0, 0, 0, 0.07);
+        animation: fadeUp 0.5s 0.24s ease both;
+      }
+      .visual-bar {
+        background: #1c1c1a;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .visual-bar span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .visual-bar span:nth-child(1) {
+        background: #ff5f56;
+      }
+      .visual-bar span:nth-child(2) {
+        background: #ffbd2e;
+      }
+      .visual-bar span:nth-child(3) {
+        background: #27c93f;
+      }
+      .visual-body {
+        padding: 24px;
+        text-align: left;
+      }
+      .chat-bubble {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .msg {
+        max-width: 82%;
+        padding: 11px 15px;
+        border-radius: 14px;
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      .msg.user {
+        background: #f0f0ea;
+        color: var(--ink);
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+      .msg.ai {
+        background: var(--accent);
+        color: #fff;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+      .msg-label {
+        font-size: 10.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.65;
+        margin-bottom: 4px;
+      }
+      .quote-line {
+        font-family: "Instrument Serif", serif;
+        font-size: 26px;
+        display: block;
+        margin-top: 6px;
+        letter-spacing: -0.5px;
+      }
+
+      /* ── FORM ── */
+      .form-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 0 24px;
+        animation: fadeUp 0.5s 0.3s ease both;
+      }
+      .form-reason {
+        font-size: 13px;
+        color: var(--ink2);
+        text-align: center;
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+      .form-reason strong {
+        color: var(--ink);
+      }
+      .form-step {
+        display: none;
+      }
+      .form-step.active {
+        display: block;
+      }
+      .step-progress {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+      .step-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border);
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+      .step-dot.active {
+        background: var(--accent);
+        transform: scale(1.3);
+      }
+      .step-dot.done {
+        background: var(--accent);
+        opacity: 0.4;
+      }
+      .field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 15px;
+        font-family: "Epilogue", sans-serif;
+        background: var(--surface);
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        color: var(--ink);
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      input::placeholder {
+        color: #9a9a8e;
+      }
+      select {
+        color: #9a9a8e;
+      }
+      select.filled {
+        color: var(--ink);
+      }
+      input:focus,
+      select:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(26, 107, 69, 0.1);
+      }
+      input.error {
+        border-color: var(--warn) !important;
+        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.08) !important;
+        background: var(--warn-bg);
+      }
+
+      /* Inline field hint (error or helper) */
+      .field-hint {
+        font-size: 12px;
+        margin-top: -4px;
+        padding: 0 4px;
+        line-height: 1.4;
+      }
+      .field-hint.error-hint {
+        color: var(--warn);
+      }
+
+      /* Form-level error banner */
+      .form-error-box {
+        display: none;
+        background: var(--warn-bg);
+        border: 1px solid rgba(192, 57, 43, 0.25);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 13.5px;
+        color: var(--warn);
+        margin-bottom: 14px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-family: "Epilogue", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          opacity 0.2s;
+        letter-spacing: 0.1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .btn:hover:not(:disabled) {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+      .btn:active:not(:disabled) {
+        transform: translateY(0);
+      }
+      .btn:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: var(--ink2);
+        font-weight: 500;
+        font-size: 13px;
+        padding: 10px;
+        margin-top: 2px;
+        border: none;
+        cursor: pointer;
+        font-family: "Epilogue", sans-serif;
+        transition: color 0.2s;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn.secondary:hover:not(:disabled) {
+        color: var(--ink);
+        background: transparent;
+        transform: none;
+      }
+
+      /* Spinner */
+      .spinner {
+        width: 15px;
+        height: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        flex-shrink: 0;
+      }
+      .btn.secondary .spinner {
+        border-color: rgba(0, 0, 0, 0.2);
+        border-top-color: var(--ink2);
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .privacy-note {
+        text-align: center;
+        font-size: 11.5px;
+        color: #9a9a8e;
+        margin-top: 12px;
+        line-height: 1.55;
+      }
+      .privacy-note a {
+        color: var(--ink2);
+        text-decoration: underline;
+      }
+
+      /* ── BELOW FOLD ── */
+      .below-fold {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 64px 24px 0;
+      }
+      .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 28px;
+        text-align: center;
+      }
+
+      /* Objections */
+      .objections {
+        margin-bottom: 60px;
+      }
+      .obj-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .obj-item {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 16px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--border);
+        align-items: start;
+      }
+      .obj-item:first-child {
+        border-top: 1px solid var(--border);
+      }
+      .obj-num {
+        font-family: "Instrument Serif", serif;
+        font-size: 28px;
+        color: var(--border);
+        line-height: 1.1;
+        text-align: right;
+      }
+      .obj-content h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .obj-content p {
+        font-size: 14px;
+        color: var(--ink2);
+        line-height: 1.65;
+      }
+
+      /* Social proof */
+      .social-proof {
+        margin-bottom: 60px;
+      }
+      .problem-statement {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 24px;
+        margin-bottom: 10px;
+      }
+      .problem-statement blockquote {
+        font-family: "Instrument Serif", serif;
+        text-align: center;
+        font-size: 17px;
+        line-height: 1.5;
+        color: var(--ink);
+        margin-bottom: 14px;
+        letter-spacing: -0.2px;
+      }
+
+      /* ── SUCCESS ── */
+      .success-state {
+        display: none;
+        text-align: center;
+        padding: 36px 24px;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .success-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--accent-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin: 0 auto 18px;
+        color: var(--accent);
+      }
+      .success-state h2 {
+        font-family: "Instrument Serif", serif;
+        font-size: 28px;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+      }
+      .success-state p {
+        font-size: 15px;
+        color: var(--ink2);
+        max-width: 340px;
+        margin: 0 auto 20px;
+        line-height: 1.6;
+      }
+      .share-row {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .share-btn {
+        padding: 9px 18px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: "Epilogue", sans-serif;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--ink2);
+        transition: border-color 0.2s;
+      }
+      .share-btn:hover {
+        border-color: var(--ink);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 36px 24px 48px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .footer-links a {
+        font-size: 12px;
+        color: var(--ink2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--ink);
+      }
+      footer p {
+        font-size: 11.5px;
+        color: #9a9a8e;
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 36px;
+          letter-spacing: -1px;
+        }
+        .visual-body {
+          padding: 18px;
+        }
+        .obj-item {
+          grid-template-columns: 28px 1fr;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="logo" href="#"><em>Quote</em>Flow AI</a>
+      <div class="nav-count">
+        <span class="dot"></span>
+        <span id="nav-count">0 on waitlist</span>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="eyebrow">AI Quote Generator</span>
+      <h1>Close More Deals With<br />Quotes Sent in <em>60 Seconds</em></h1>
+      <p class="subheadline">
+        QuoteFlow AI turns any customer inquiry into a branded, ready-to-approve
+        quote — automatically. No spreadsheets. No delays. No lost deals.
+      </p>
+
+      <div class="product-visual">
+        <div class="visual-bar"><span></span><span></span><span></span></div>
+        <div class="visual-body">
+          <div class="chat-bubble">
+            <div class="msg user">
+              <div class="msg-label">Customer</div>
+              "I need 500 custom tote bags, 2-color logo, ready in 10 days."
+            </div>
+            <div class="msg ai">
+              <div class="msg-label">QuoteFlow AI · 4 seconds later</div>
+              Quote ready to send ✓
+              <span class="quote-line">Rp 24,250,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST FORM -->
+    <div class="form-wrap" id="form-wrap">
+      <p class="form-reason">
+        <strong>Join the waitlist — it's free.</strong> We'll notify you at
+        launch. Early members get 3 months free.
+      </p>
+
+      <div class="step-progress">
+        <span class="step-dot active" id="dot-1"></span>
+        <span class="step-dot" id="dot-2"></span>
+      </div>
+
+      <!-- Step 1: email only -->
+      <div class="form-step active" id="step-1">
+        <div id="form-error-1" class="form-error-box"></div>
+        <div class="field-group">
+          <input
+            type="email"
+            id="s1-email"
+            placeholder="Your work email address"
+            autocomplete="email"
+          />
+        </div>
+        <button class="btn" id="btn-step1" onclick="goStep2()">
+          Get Early Access — Free →
+        </button>
+        <p class="privacy-note">
+          No spam, ever. Unsubscribe anytime. By joining you agree to our
+          <a href="#privacy">Privacy Policy</a> and
+          <a href="#terms">Terms of Service</a>.
+        </p>
+      </div>
+
+      <!-- Step 2: qualify -->
+      <div class="form-step" id="step-2">
+        <div id="form-error-2" class="form-error-box"></div>
+        <div class="field-group">
+          <input
+            type="text"
+            id="s2-name"
+            placeholder="Your first name"
+            autocomplete="given-name"
+          />
+          <select id="s2-type" onchange="this.classList.add('filled')">
+            <option value="" disabled selected>Type of business you run</option>
+            <option>Printing &amp; Merchandise</option>
+            <option>Events &amp; Catering</option>
+            <option>Cleaning &amp; Maintenance</option>
+            <option>Construction &amp; Renovation</option>
+            <option>Consulting &amp; Services</option>
+            <option>Logistics &amp; Delivery</option>
+            <option>Other custom business</option>
+          </select>
+        </div>
+        <button class="btn" id="btn-submit" onclick="submitForm()">
+          Reserve My Spot →
+        </button>
+        <button class="btn secondary" id="btn-skip" onclick="skipStep2()">
+          Skip this step
+        </button>
+        <p class="privacy-note">Takes 10 seconds. No credit card required.</p>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-state" id="success-state">
+      <div class="success-icon">✓</div>
+      <h2>You're on the list.</h2>
+      <p>
+        We'll email you the moment early access opens. Early members get
+        <strong>3 months free</strong>.
+      </p>
+      <div class="share-row">
+        <button class="share-btn" onclick="shareTwitter()">Share on X</button>
+        <button class="share-btn" onclick="shareWhatsApp()">
+          Share on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- BELOW FOLD -->
+    <div class="below-fold">
+      <div class="objections reveal">
+        <div class="section-label">Still Not Sure?</div>
+        <div class="obj-list">
+          <div class="obj-item">
+            <div class="obj-num">1</div>
+            <div class="obj-content">
+              <h3>"My pricing is too complex — no tool can handle it."</h3>
+              <p>
+                QuoteFlow is trained on <em>your</em> rules, not generic
+                templates. Variable quantities, custom add-ons, rush fees,
+                tiered discounts — if you can explain it, we can automate it.
+              </p>
+            </div>
+          </div>
+          <div class="obj-item">
+            <div class="obj-num">2</div>
+            <div class="obj-content">
+              <h3>"We're not technical — setup sounds complicated."</h3>
+              <p>
+                Setup takes under 30 minutes. Answer a few questions about your
+                services and you're live. No code. No IT team. We onboard you
+                personally on a call.
+              </p>
+            </div>
+          </div>
+          <div class="obj-item">
+            <div class="obj-num">3</div>
+            <div class="obj-content">
+              <h3>"What if the AI generates the wrong price?"</h3>
+              <p>
+                Every quote sits in your approval queue before it's sent. The AI
+                handles 90% of the work — you confirm before anything reaches
+                your customer. You're always in control.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-proof reveal">
+        <div class="section-label">problem statements</div>
+        <div class="problem-statement">
+          <blockquote>
+            Many custom businesses spend hours creating quotations manually
+            using spreadsheets, documents, or calculators. This delays response
+            time to potential customers and often results in lost opportunities
+            when clients choose faster competitors.
+          </blockquote>
+        </div>
+        <div class="problem-statement">
+          <blockquote>
+            Pricing for custom projects is often calculated manually, which can
+            lead to inconsistent quotes, calculation mistakes, and difficulty
+            maintaining healthy profit margins across different projects.
+          </blockquote>
+        </div>
+        <div class="problem-statement">
+          <blockquote>
+            Customer requests usually come in unstructured formats such as
+            emails, chats, or phone calls. Business owners must manually
+            interpret these requests and convert them into structured project
+            requirements before generating a quotation.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <a class="logo" href="#"><em>Quote</em>Flow AI</a>
+      <div class="footer-links">
+        <a href="privacy-policy.html" id="privacy">Privacy Policy</a>
+        <a href="terms-of-service.html" id="terms">Terms of Service</a>
+        <a href="contact.html" id="contact">Contact</a>
+      </div>
+      <p>
+        © 2026 QuoteFlow AI. All rights reserved.<br />
+        By joining the waitlist you agree to receive product update emails. You
+        can unsubscribe at any time. We will never sell your data to third
+        parties.
+      </p>
+    </footer>
+
+    <script>
+      // ─────────────────────────────────────────────
+      // Waitlist count
+      // ─────────────────────────────────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchNumberOfWaitingList();
+      });
+
+      // ─────────────────────────────────────────────
+      // Supabase config
+      // ─────────────────────────────────────────────
+      const SUPABASE_URL = "https://mjnauehridsaifwrlgvd.supabase.co";
+      const SUPABASE_KEY = "sb_publishable_pMNjaaABKfyoD5Botmt80w_y_D4j9Zf";
+
+      async function fetchNumberOfWaitingList() {
+        try {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+            method: "HEAD",
+            headers: {
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              Prefer: "count=exact,head=true",
+            },
+          });
+
+          if (!res.ok)
+            throw new Error("Failed to fetch number of waiting list");
+
+          const contentRange = res.headers.get("content-range");
+          const count = contentRange ? contentRange.split("/")[1] : 0;
+
+          const navCountEl = document.getElementById("nav-count");
+          if (navCountEl) {
+            navCountEl.textContent = `${count} on waitlist`;
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      async function insertWaitlist(payload) {
+        let res;
+        try {
+          res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              apikey: SUPABASE_KEY,
+              Authorization: `Bearer ${SUPABASE_KEY}`,
+              Prefer: "return=minimal",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) return;
+
+          const errBody = await res.json().catch(() => ({}));
+          const msg = (errBody.message || errBody.details || "").toLowerCase();
+          const code = errBody.code || "";
+
+          if (
+            res.status === 409 ||
+            code === "23505" ||
+            msg.includes("duplicate")
+          ) {
+            throw { type: "duplicate" };
+          }
+
+          if (res.status === 400) {
+            throw {
+              type: "bad_request",
+              detail: errBody.message || "Invalid data.",
+            };
+          }
+
+          if (res.status === 401 || res.status === 403) {
+            throw { type: "auth", detail: "Configuration error." };
+          }
+
+          if (res.status >= 500) {
+            throw { type: "server" };
+          }
+
+          throw { type: "unknown", status: res.status };
+        } catch (err) {
+          if (err.type) throw err;
+
+          throw { type: "network", detail: err.message };
+        }
+      }
+
+      // ─────────────────────────────────────────────
+      // State
+      // ─────────────────────────────────────────────
+      let collectedEmail = "";
+      let isSubmitting = false;
+
+      // ─────────────────────────────────────────────
+      // Validation helpers
+      // ─────────────────────────────────────────────
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      }
+
+      // ─────────────────────────────────────────────
+      // Field-level error UI
+      // ─────────────────────────────────────────────
+      function setFieldError(el, msg) {
+        el.classList.add("error");
+        const existing = el.parentElement.querySelector(".field-hint");
+        if (existing) existing.remove();
+        const hint = document.createElement("p");
+        hint.className = "field-hint error-hint";
+        hint.textContent = msg;
+        el.after(hint);
+        el.addEventListener("input", () => clearFieldError(el), { once: true });
+      }
+
+      function clearFieldError(el) {
+        el.classList.remove("error");
+        const hint = el.parentElement.querySelector(".field-hint");
+        if (hint) hint.remove();
+      }
+
+      // ─────────────────────────────────────────────
+      // Form-level error banner
+      // ─────────────────────────────────────────────
+      function showBanner(stepId, msg) {
+        const box = document.getElementById("form-error-" + stepId);
+        box.textContent = msg;
+        box.style.display = "block";
+        box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function hideBanner(stepId) {
+        const box = document.getElementById("form-error-" + stepId);
+        if (box) box.style.display = "none";
+      }
+
+      // ─────────────────────────────────────────────
+      // Button loading state
+      // ─────────────────────────────────────────────
+      function setLoading(btn, on, label) {
+        if (on) {
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner"></span> ${label || "Saving…"}`;
+        } else {
+          btn.disabled = false;
+          btn.textContent = btn.dataset.label;
+        }
+      }
+
+      // ─────────────────────────────────────────────
+      // Cache original labels on page load
+      // ─────────────────────────────────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".btn").forEach((b) => {
+          b.dataset.label = b.textContent.trim();
+        });
+
+        document.getElementById("s1-email").addEventListener("keydown", (e) => {
+          if (e.key === "Enter") goStep2();
+        });
+        document.getElementById("s2-name").addEventListener("keydown", (e) => {
+          if (e.key === "Enter") submitForm();
+        });
+      });
+
+      // ─────────────────────────────────────────────
+      // Error message map
+      // ─────────────────────────────────────────────
+      function getErrorMessage(err) {
+        if (!navigator.onLine) {
+          return "You appear to be offline. Please check your connection and try again.";
+        }
+        switch (err.type) {
+          case "duplicate":
+            return "This email is already on the waitlist — you're in! 🎉 Check your inbox for a confirmation.";
+          case "bad_request":
+            return (
+              err.detail ||
+              "Something looks off with the data submitted. Please try again."
+            );
+          case "auth":
+            return "Configuration error on our end. Please email hello@quoteflow.ai.";
+          case "server":
+            return "Our server had a hiccup. Please try again in a moment.";
+          default:
+            return "Something went wrong. Please try again or contact hello@quoteflow.ai.";
+        }
+      }
+
+      // ─────────────────────────────────────────────
+      // Step 1 → Step 2
+      // ─────────────────────────────────────────────
+      function goStep2() {
+        hideBanner(1);
+        const emailEl = document.getElementById("s1-email");
+        const email = emailEl.value.trim();
+
+        if (!email) {
+          setFieldError(emailEl, "Please enter your email address.");
+          emailEl.focus();
+          return;
+        }
+        if (!isValidEmail(email)) {
+          setFieldError(
+            emailEl,
+            "Please enter a valid email — e.g. you@company.com",
+          );
+          emailEl.focus();
+          return;
+        }
+
+        collectedEmail = email;
+
+        document.getElementById("step-1").classList.remove("active");
+        document.getElementById("step-2").classList.add("active");
+        document.getElementById("dot-1").classList.remove("active");
+        document.getElementById("dot-1").classList.add("done");
+        document.getElementById("dot-2").classList.add("active");
+        document.getElementById("s2-name").focus();
+      }
+
+      // ─────────────────────────────────────────────
+      // Step 2 submit (with name + type)
+      // ─────────────────────────────────────────────
+      async function submitForm() {
+        if (isSubmitting) return;
+        hideBanner(2);
+
+        const nameEl = document.getElementById("s2-name");
+        const typeEl = document.getElementById("s2-type");
+        const btn = document.getElementById("btn-submit");
+
+        const name = nameEl.value.trim();
+        const business_type = typeEl.value || null;
+
+        if (!name) {
+          setFieldError(nameEl, "Please enter your name.");
+          nameEl.focus();
+          return;
+        }
+
+        isSubmitting = true;
+        setLoading(btn, true, "Saving…");
+        document.getElementById("btn-skip").disabled = true;
+
+        try {
+          await insertWaitlist({ email: collectedEmail, name, business_type });
+          showSuccess();
+        } catch (err) {
+          setLoading(btn, false);
+          document.getElementById("btn-skip").disabled = false;
+          isSubmitting = false;
+
+          showBanner(2, getErrorMessage(err));
+        }
+      }
+
+      // ─────────────────────────────────────────────
+      // Skip step 2 (email only)
+      // ─────────────────────────────────────────────
+      async function skipStep2() {
+        if (isSubmitting) return;
+        hideBanner(2);
+
+        const btn = document.getElementById("btn-skip");
+        const submit = document.getElementById("btn-submit");
+
+        isSubmitting = true;
+        setLoading(btn, true, "Saving…");
+        submit.disabled = true;
+
+        try {
+          await insertWaitlist({
+            email: collectedEmail,
+            name: null,
+            business_type: null,
+          });
+          showSuccess();
+        } catch (err) {
+          setLoading(btn, false);
+          submit.disabled = false;
+          isSubmitting = false;
+
+          showBanner(2, getErrorMessage(err));
+        }
+      }
+
+      // ─────────────────────────────────────────────
+      // Show success screen
+      // ─────────────────────────────────────────────
+      function showSuccess() {
+        isSubmitting = false;
+        document.getElementById("form-wrap").style.display = "none";
+        const s = document.getElementById("success-state");
+        s.style.display = "block";
+        s.style.animation = "fadeUp 0.45s ease both";
+        s.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        fetchNumberOfWaitingList();
+      }
+
+      // ─────────────────────────────────────────────
+      // Share buttons
+      // ─────────────────────────────────────────────
+      function shareTwitter() {
+        window.open(
+          "https://twitter.com/intent/tweet?text=Just%20joined%20the%20waitlist%20for%20QuoteFlow%20AI%20%E2%80%94%20AI%20that%20generates%20custom%20business%20quotes%20in%2060%20seconds.%20Get%20early%20access%3A%20https%3A%2F%2Fquoteflow.ai",
+          "_blank",
+        );
+      }
+      function shareWhatsApp() {
+        window.open(
+          "https://wa.me/?text=Just%20joined%20QuoteFlow%20AI%20%E2%80%94%20AI-generated%20business%20quotes%20in%2060%20seconds.%20Check%20it%20out%3A%20https%3A%2F%2Fquoteflow.ai",
+          "_blank",
+        );
+      }
+
+      // ─────────────────────────────────────────────
+      // Scroll reveal
+      // ─────────────────────────────────────────────
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("in");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+
+      // ─────────────────────────────────────────────
+      // Copy email
+      // ─────────────────────────────────────────────
+      async function copyEmail() {
+        try {
+          await navigator.clipboard.writeText("valentinovbill0@gmail.com");
+          alert("Email address copied to clipboard!");
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    </script>
+  </body>
+</html>
