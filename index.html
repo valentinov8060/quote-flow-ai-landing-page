@@ -575,6 +575,38 @@
         max-width: 480px;
       }
 
+      .built-by {
+        font-size: 13px;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .built-by .role {
+        display: block;
+        font-size: 11px;
+        color: #9a9a8e;
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .personal-links {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 8px;
+      }
+      .personal-links a {
+        font-size: 12px;
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--border);
+        text-underline-offset: 3px;
+        transition: all 0.2s;
+      }
+      .personal-links a:hover {
+        text-decoration-color: var(--ink);
+        opacity: 0.8;
+      }
+
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
         from {
@@ -803,11 +835,30 @@
     <!-- FOOTER -->
     <footer>
       <a class="logo" href="#"><em>Quote</em>Flow AI</a>
-      <div class="footer-links">
-        <a href="privacy-policy.html" id="privacy">Privacy Policy</a>
-        <a href="terms-of-service.html" id="terms">Terms of Service</a>
-        <a href="contact.html" id="contact">Contact</a>
+
+      <div class="built-by">
+        <span>Built by <strong>Bill Valentinov</strong></span>
+        <span class="role">Software Engineer</span>
+        <div class="personal-links">
+          <a
+            href="https://www.linkedin.com/in/bill-valentinov-42a8a4250"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            href="https://www.youtube.com/@valentinovSoftware/videos"
+            target="_blank"
+            >YouTube</a
+          >
+        </div>
       </div>
+
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
       <p>
         © 2026 QuoteFlow AI. All rights reserved.<br />
         By joining the waitlist you agree to receive product update emails. You
@@ -1121,22 +1172,6 @@
       }
 
       // ─────────────────────────────────────────────
-      // Share buttons
-      // ─────────────────────────────────────────────
-      function shareTwitter() {
-        window.open(
-          "https://twitter.com/intent/tweet?text=Just%20joined%20the%20waitlist%20for%20QuoteFlow%20AI%20%E2%80%94%20AI%20that%20generates%20custom%20business%20quotes%20in%2060%20seconds.%20Get%20early%20access%3A%20https%3A%2F%2Fquoteflow.ai",
-          "_blank",
-        );
-      }
-      function shareWhatsApp() {
-        window.open(
-          "https://wa.me/?text=Just%20joined%20QuoteFlow%20AI%20%E2%80%94%20AI-generated%20business%20quotes%20in%2060%20seconds.%20Check%20it%20out%3A%20https%3A%2F%2Fquoteflow.ai",
-          "_blank",
-        );
-      }
-
-      // ─────────────────────────────────────────────
       // Scroll reveal
       // ─────────────────────────────────────────────
       const revealObserver = new IntersectionObserver(
@@ -1156,7 +1191,7 @@
       // ─────────────────────────────────────────────
       async function copyEmail() {
         try {
-          await navigator.clipboard.writeText("valentinovbill0@gmail.com");
+          await navigator.clipboard.writeText("hello@quoteflowai.online");
           alert("Email address copied to clipboard!");
         } catch (err) {
           console.error(err);

@@ -252,25 +252,23 @@
         text-decoration: underline;
       }
 
-      /* FOOTER */
+      /* ── FOOTER ── */
       footer {
-        max-width: 800px;
+        max-width: 680px;
         margin: 0 auto;
-        padding: 28px 24px 48px;
+        padding: 36px 24px 48px;
         border-top: 1px solid var(--border);
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
         gap: 12px;
-      }
-      footer p {
-        font-size: 12px;
-        color: #9a9a8e;
+        text-align: center;
       }
       .footer-links {
         display: flex;
         gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       .footer-links a {
         font-size: 12px;
@@ -279,7 +277,45 @@
         transition: color 0.2s;
       }
       .footer-links a:hover {
-        color: var(--accent);
+        color: var(--ink);
+      }
+      footer p {
+        font-size: 11.5px;
+        color: #9a9a8e;
+        line-height: 1.6;
+        max-width: 480px;
+      }
+
+      .built-by {
+        font-size: 13px;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .built-by .role {
+        display: block;
+        font-size: 11px;
+        color: #9a9a8e;
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .personal-links {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 8px;
+      }
+      .personal-links a {
+        font-size: 12px;
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--border);
+        text-underline-offset: 3px;
+        transition: all 0.2s;
+      }
+      .personal-links a:hover {
+        text-decoration-color: var(--ink);
+        opacity: 0.8;
       }
 
       @keyframes fadeUp {
@@ -332,9 +368,9 @@
         <div class="doc-section" id="overview">
           <h2>Overview</h2>
           <p>
-            QuoteFlow AI ("we", "our", or "us") is committed to protecting your
-            personal data. This Privacy Policy explains what information we
-            collect, how we use it, and your rights in relation to it.
+            QuoteFlow AI is committed to protecting your personal data. This
+            Privacy Policy explains what information we collect, how we use it,
+            and your rights in relation to it.
           </p>
           <p>
             This policy applies to all visitors to
@@ -557,8 +593,8 @@
           <div class="contact-card">
             <strong>QuoteFlow AI — Privacy Team</strong><br />
             Email:
-            <a href="mailto:valentinovbill0@gmail.com"
-              >valentinovbill0@gmail.com</a
+            <a href="mailto:hello@quoteflowai.online"
+              >hello@quoteflowai.online</a
             ><br />
             Response time: Within 2 business days
           </div>
@@ -567,12 +603,37 @@
     </div>
 
     <footer>
-      <p>© 2026 QuoteFlow AI. All rights reserved.</p>
+      <a class="logo" href="#"><em>Quote</em>Flow AI</a>
+
+      <div class="built-by">
+        <span>Built by <strong>Bill Valentinov</strong></span>
+        <span class="role">Software Engineer</span>
+        <div class="personal-links">
+          <a
+            href="https://www.linkedin.com/in/bill-valentinov-42a8a4250"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            href="https://www.youtube.com/@valentinovSoftware/videos"
+            target="_blank"
+            >YouTube</a
+          >
+        </div>
+      </div>
+
       <div class="footer-links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
         <a href="contact.html">Contact</a>
       </div>
+
+      <p>
+        © 2026 QuoteFlow AI. All rights reserved.<br />
+        By joining the waitlist you agree to receive product update emails. You
+        can unsubscribe at any time. We will never sell your data to third
+        parties.
+      </p>
     </footer>
 
     <script>
