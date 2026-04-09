@@ -15,636 +15,7 @@
     />
     <link rel="icon" type="image/png" href="assets/logo.png" />
 
-    <style>
-      :root {
-        --bg: #fafaf8;
-        --ink: #0f0f0d;
-        --ink2: #4a4a42;
-        --accent: #1a6b45;
-        --accent-light: #e8f5ef;
-        --accent-hover: #155438;
-        --border: #e4e4dc;
-        --surface: #ffffff;
-        --warn: #c0392b;
-        --warn-bg: #fdf2f2;
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        font-size: 16px;
-      }
-      body {
-        background: var(--bg);
-        color: var(--ink);
-        font-family: "Epilogue", sans-serif;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      /* ── NAV ── */
-      nav {
-        padding: 20px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 680px;
-        margin: 0 auto;
-      }
-      .logo {
-        font-family: "Instrument Serif", serif;
-        font-size: 20px;
-        color: var(--ink);
-        text-decoration: none;
-        letter-spacing: -0.3px;
-      }
-      .logo em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .nav-count {
-        font-size: 12px;
-        color: var(--ink2);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--accent);
-        animation: blink 2s ease infinite;
-      }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
-      }
-
-      /* ── HERO ── */
-      .hero {
-        max-width: 680px;
-        margin: 0 auto;
-        padding: 48px 24px 0;
-        text-align: center;
-      }
-      .eyebrow {
-        display: inline-block;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 20px;
-        animation: fadeUp 0.5s ease both;
-      }
-      h1 {
-        font-family: "Instrument Serif", serif;
-        font-size: clamp(38px, 7vw, 62px);
-        line-height: 1.08;
-        letter-spacing: -1.5px;
-        color: var(--ink);
-        margin-bottom: 20px;
-        animation: fadeUp 0.5s 0.08s ease both;
-      }
-      h1 em {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .subheadline {
-        font-size: clamp(16px, 2.5vw, 18px);
-        color: var(--ink2);
-        font-weight: 400;
-        max-width: 500px;
-        margin: 0 auto 36px;
-        line-height: 1.65;
-        animation: fadeUp 0.5s 0.16s ease both;
-      }
-
-      /* ── PRODUCT VISUAL ── */
-      .product-visual {
-        margin: 0 auto 44px;
-        max-width: 520px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow:
-          0 2px 4px rgba(0, 0, 0, 0.04),
-          0 8px 32px rgba(0, 0, 0, 0.07);
-        animation: fadeUp 0.5s 0.24s ease both;
-      }
-      .visual-bar {
-        background: #1c1c1a;
-        padding: 10px 16px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .visual-bar span {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-      }
-      .visual-bar span:nth-child(1) {
-        background: #ff5f56;
-      }
-      .visual-bar span:nth-child(2) {
-        background: #ffbd2e;
-      }
-      .visual-bar span:nth-child(3) {
-        background: #27c93f;
-      }
-      .visual-body {
-        padding: 24px;
-        text-align: left;
-      }
-      .chat-bubble {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .msg {
-        max-width: 82%;
-        padding: 11px 15px;
-        border-radius: 14px;
-        font-size: 13.5px;
-        line-height: 1.55;
-      }
-      .msg.user {
-        background: #f0f0ea;
-        color: var(--ink);
-        align-self: flex-end;
-        border-bottom-right-radius: 4px;
-      }
-      .msg.ai {
-        background: var(--accent);
-        color: #fff;
-        align-self: flex-start;
-        border-bottom-left-radius: 4px;
-      }
-      .msg-label {
-        font-size: 10.5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        opacity: 0.65;
-        margin-bottom: 4px;
-      }
-      .quote-line {
-        font-family: "Instrument Serif", serif;
-        font-size: 26px;
-        display: block;
-        margin-top: 6px;
-        letter-spacing: -0.5px;
-      }
-
-      /* ── FORM ── */
-      .form-wrap {
-        max-width: 480px;
-        margin: 0 auto;
-        padding: 0 24px;
-        animation: fadeUp 0.5s 0.3s ease both;
-      }
-      .form-reason {
-        font-size: 13px;
-        color: var(--ink2);
-        text-align: center;
-        margin-bottom: 16px;
-        line-height: 1.5;
-      }
-      .form-reason strong {
-        color: var(--ink);
-      }
-      .form-step {
-        display: none;
-      }
-      .form-step.active {
-        display: block;
-      }
-      .step-progress {
-        display: flex;
-        justify-content: center;
-        gap: 6px;
-        margin-bottom: 20px;
-      }
-      .step-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--border);
-        transition:
-          background 0.3s,
-          transform 0.3s;
-      }
-      .step-dot.active {
-        background: var(--accent);
-        transform: scale(1.3);
-      }
-      .step-dot.done {
-        background: var(--accent);
-        opacity: 0.4;
-      }
-      .field-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 12px;
-      }
-      input[type="text"],
-      input[type="email"],
-      select {
-        width: 100%;
-        padding: 14px 16px;
-        font-size: 15px;
-        font-family: "Epilogue", sans-serif;
-        background: var(--surface);
-        border: 1.5px solid var(--border);
-        border-radius: 10px;
-        color: var(--ink);
-        outline: none;
-        transition:
-          border-color 0.2s,
-          box-shadow 0.2s;
-        -webkit-appearance: none;
-        appearance: none;
-      }
-      input::placeholder {
-        color: #9a9a8e;
-      }
-      select {
-        color: #9a9a8e;
-      }
-      select.filled {
-        color: var(--ink);
-      }
-      input:focus,
-      select:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(26, 107, 69, 0.1);
-      }
-      input.error {
-        border-color: var(--warn) !important;
-        box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.08) !important;
-        background: var(--warn-bg);
-      }
-
-      /* Inline field hint (error or helper) */
-      .field-hint {
-        font-size: 12px;
-        margin-top: -4px;
-        padding: 0 4px;
-        line-height: 1.4;
-      }
-      .field-hint.error-hint {
-        color: var(--warn);
-      }
-
-      /* Form-level error banner */
-      .form-error-box {
-        display: none;
-        background: var(--warn-bg);
-        border: 1px solid rgba(192, 57, 43, 0.25);
-        border-radius: 10px;
-        padding: 12px 16px;
-        font-size: 13.5px;
-        color: var(--warn);
-        margin-bottom: 14px;
-        line-height: 1.5;
-        text-align: center;
-      }
-
-      .btn {
-        width: 100%;
-        padding: 15px;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 15px;
-        font-family: "Epilogue", sans-serif;
-        font-weight: 600;
-        cursor: pointer;
-        transition:
-          background 0.2s,
-          transform 0.15s,
-          opacity 0.2s;
-        letter-spacing: 0.1px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-      .btn:hover:not(:disabled) {
-        background: var(--accent-hover);
-        transform: translateY(-1px);
-      }
-      .btn:active:not(:disabled) {
-        transform: translateY(0);
-      }
-      .btn:disabled {
-        opacity: 0.65;
-        cursor: not-allowed;
-      }
-
-      .btn.secondary {
-        background: transparent;
-        color: var(--ink2);
-        font-weight: 500;
-        font-size: 13px;
-        padding: 10px;
-        margin-top: 2px;
-        border: none;
-        cursor: pointer;
-        font-family: "Epilogue", sans-serif;
-        transition: color 0.2s;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .btn.secondary:hover:not(:disabled) {
-        color: var(--ink);
-        background: transparent;
-        transform: none;
-      }
-
-      /* Spinner */
-      .spinner {
-        width: 15px;
-        height: 15px;
-        border: 2px solid rgba(255, 255, 255, 0.35);
-        border-top-color: #fff;
-        border-radius: 50%;
-        animation: spin 0.7s linear infinite;
-        flex-shrink: 0;
-      }
-      .btn.secondary .spinner {
-        border-color: rgba(0, 0, 0, 0.2);
-        border-top-color: var(--ink2);
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .privacy-note {
-        text-align: center;
-        font-size: 11.5px;
-        color: #9a9a8e;
-        margin-top: 12px;
-        line-height: 1.55;
-      }
-      .privacy-note a {
-        color: var(--ink2);
-        text-decoration: underline;
-      }
-
-      /* ── BELOW FOLD ── */
-      .below-fold {
-        max-width: 680px;
-        margin: 0 auto;
-        padding: 64px 24px 0;
-      }
-      .section-label {
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 28px;
-        text-align: center;
-      }
-
-      /* Objections */
-      .objections {
-        margin-bottom: 60px;
-      }
-      .obj-list {
-        display: flex;
-        flex-direction: column;
-      }
-      .obj-item {
-        display: grid;
-        grid-template-columns: 36px 1fr;
-        gap: 16px;
-        padding: 22px 0;
-        border-bottom: 1px solid var(--border);
-        align-items: start;
-      }
-      .obj-item:first-child {
-        border-top: 1px solid var(--border);
-      }
-      .obj-num {
-        font-family: "Instrument Serif", serif;
-        font-size: 28px;
-        color: var(--border);
-        line-height: 1.1;
-        text-align: right;
-      }
-      .obj-content h3 {
-        font-size: 15px;
-        font-weight: 600;
-        margin-bottom: 5px;
-      }
-      .obj-content p {
-        font-size: 14px;
-        color: var(--ink2);
-        line-height: 1.65;
-      }
-
-      /* Social proof */
-      .social-proof {
-        margin-bottom: 60px;
-      }
-      .problem-statement {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 22px 24px;
-        margin-bottom: 10px;
-      }
-      .problem-statement blockquote {
-        font-family: "Instrument Serif", serif;
-        text-align: center;
-        font-size: 17px;
-        line-height: 1.5;
-        color: var(--ink);
-        margin-bottom: 14px;
-        letter-spacing: -0.2px;
-      }
-
-      /* ── SUCCESS ── */
-      .success-state {
-        display: none;
-        text-align: center;
-        padding: 36px 24px;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      .success-icon {
-        width: 52px;
-        height: 52px;
-        background: var(--accent-light);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        margin: 0 auto 18px;
-        color: var(--accent);
-      }
-      .success-state h2 {
-        font-family: "Instrument Serif", serif;
-        font-size: 28px;
-        letter-spacing: -0.5px;
-        margin-bottom: 10px;
-      }
-      .success-state p {
-        font-size: 15px;
-        color: var(--ink2);
-        max-width: 340px;
-        margin: 0 auto 20px;
-        line-height: 1.6;
-      }
-      .share-row {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 18px;
-      }
-      .share-btn {
-        padding: 9px 18px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 600;
-        font-family: "Epilogue", sans-serif;
-        cursor: pointer;
-        border: 1.5px solid var(--border);
-        background: transparent;
-        color: var(--ink2);
-        transition: border-color 0.2s;
-      }
-      .share-btn:hover {
-        border-color: var(--ink);
-      }
-
-      /* ── FOOTER ── */
-      footer {
-        max-width: 680px;
-        margin: 0 auto;
-        padding: 36px 24px 48px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        text-align: center;
-      }
-      .footer-links {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .footer-links a {
-        font-size: 12px;
-        color: var(--ink2);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .footer-links a:hover {
-        color: var(--ink);
-      }
-      footer p {
-        font-size: 11.5px;
-        color: #9a9a8e;
-        line-height: 1.6;
-        max-width: 480px;
-      }
-
-      .built-by {
-        font-size: 13px;
-        color: var(--ink);
-        margin-bottom: 8px;
-      }
-      .built-by .role {
-        display: block;
-        font-size: 11px;
-        color: #9a9a8e;
-        margin-top: 2px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      .personal-links {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin-top: 8px;
-      }
-      .personal-links a {
-        font-size: 12px;
-        color: var(--ink);
-        text-decoration: underline;
-        text-decoration-color: var(--border);
-        text-underline-offset: 3px;
-        transition: all 0.2s;
-      }
-      .personal-links a:hover {
-        text-decoration-color: var(--ink);
-        opacity: 0.8;
-      }
-
-      /* ── ANIMATIONS ── */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* ── RESPONSIVE ── */
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 36px;
-          letter-spacing: -1px;
-        }
-        .visual-body {
-          padding: 18px;
-        }
-        .obj-item {
-          grid-template-columns: 28px 1fr;
-          gap: 12px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
     <!-- NAV -->
@@ -689,7 +60,7 @@
     <div class="form-wrap" id="form-wrap">
       <p class="form-reason">
         <strong>Join the waitlist — it's free.</strong> We'll notify you at
-        launch. Early members get 3 months free.
+        launch. Early members get 1 week free.
       </p>
 
       <div class="step-progress">
@@ -755,7 +126,7 @@
       <h2>You're on the list.</h2>
       <p>
         We'll email you the moment early access opens. Early members get
-        <strong>3 months free</strong>.
+        <strong>1 week free</strong>.
       </p>
       <div class="share-row">
         <button class="share-btn" onclick="shareTwitter()">Share on X</button>
@@ -764,6 +135,58 @@
         </button>
       </div>
     </div>
+
+    <!-- FRAMEWORK -->
+    <section class="framework reveal">
+      <div class="section-label">Our Process</div>
+      <h2 class="section-title">The QuoteFlow Framework</h2>
+      <p class="section-subtitle">
+        A strategic 4-step approach to turning your manual operations into an
+        autonomous powerhouse.
+      </p>
+
+      <div class="framework-grid">
+        <div class="framework-item">
+          <div class="step-num">01</div>
+          <h3>Workflow Audit</h3>
+          <p>
+            We analyze your current operational processes—from data management
+            and customer communication to repetitive manual tasks—to identify
+            high-impact automation opportunities.
+          </p>
+        </div>
+
+        <div class="framework-item">
+          <div class="step-num">02</div>
+          <h3>Automation Blueprint</h3>
+          <p>
+            We design a custom automation architecture using
+            <strong>Agentic AI</strong> and intelligent workflows tailored
+            specifically to your business scale and unique requirements.
+          </p>
+        </div>
+
+        <div class="framework-item">
+          <div class="step-num">03</div>
+          <h3>Seamless Integration</h3>
+          <p>
+            We connect your existing systems (CRM, Spreadsheets, Email, or APIs)
+            into a unified ecosystem with zero downtime. We ensure a smooth
+            transition into your new workflow.
+          </p>
+        </div>
+
+        <div class="framework-item">
+          <div class="step-num">04</div>
+          <h3>Autonomous Growth</h3>
+          <p>
+            Your business runs on autopilot—from data processing and instant
+            notifications to daily reporting. Let the AI handle the grind while
+            you focus on scaling your strategy.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- BELOW FOLD -->
     <div class="below-fold">
